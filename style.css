@@ -1,0 +1,136 @@
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#infobox, #infobox2{
+    margin-top: 50px;
+	padding-bottom:20px;
+}
+
+
+#mainpage {
+    min-height: 90%;
+}
+
+#aside, #bside {
+    float: left;
+    box-sizing: border-box;
+    max-height: 100%;
+    /*overflow-x: scroll;*/
+}
+
+#aside {
+  width: 34%;
+	position:fixed;
+	/* background-color: #222; */
+    height: 90%;
+}
+
+#bside {
+    /* width: 66%; */
+    border-left: 1px solid;
+    text-align: center;
+    height: 92vh;
+	margin-left: 34%;
+    overflow: auto;
+}
+
+#bside .battler {
+    font-size: 14px;
+    line-height: 15px;
+    width: 140px;
+    height: 80px;
+    margin: 3px;
+    text-align: center;
+    display: inline-block;
+    /*background-color: #FFFFFF;*/
+    border-radius: 5px;
+   
+}
+
+#bside .battler b {
+	width: 100%;
+	white-space: pre-line;
+}
+
+#bside .battler small {
+    font-size: 10px;
+    line-height: 14px;
+}
+
+#entryform {
+    text-align: center;
+    margin: 5px auto 20px;
+    height: 70px;
+}
+
+#entryform > .form-group {
+    width: 50%;
+    box-sizing: border-box;
+    float: left;
+    display: block;
+}
+
+#entryform > .form-group > label, #entryform > .form-group > input {
+    display: block;
+    margin: 0 auto;
+}
+
+#entryform > .form-group > input[type=number] {
+	width: 120px;
+}
+
+#targetbox {
+    clear: both;
+    width: 100%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+#battletable {
+    clear: both;
+}
+
+#battletable .close {
+    color: #000;
+    text-align: center;
+    float: none;
+}
+
+.bg-ultimate { background-color: #FFEBEE; }
+.bg-vip { background-color: #FFF3E0; }
+.bg-strong { background-color: #FCE4EC; }
+.bg-champ { background-color: #E8EAF6; }
+.bg-elite4 { background-color: #E3F2FD; }
+.bg-trainers { background-color:#D3FCFE; }
+.bg-kanto-gym, .bg-johto-gym, .bg-hoenn-gym, .bg-sinnoh-gym, .bg-unova-gym, .bg-kalos-gym, .bg-alola-gym, .bg-galar-gym { background-color: #FFFFCE;  }
+.bg-wild { background-color: #CEFFC6; }
+
+
+.borderless > tbody > tr > td, .borderless > thead > tr > th {
+	border-top: 3px solid white;
+	border-bottom: 3px solid white;
+}
+
+#clearsol {
+	font-size: 20px;
+	line-height: 20px;
+	cursor: pointer;
+}
+
+
+@media screen and (max-width: 700px) {
+ 
+  #aside {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+ 
+  #bside {margin-left: 0;  width: 100%;}
+  
+  #infobox, #infobox2  {
+    margin-top: 100px;
+  }
+  
+}
