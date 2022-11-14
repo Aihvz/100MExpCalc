@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <!-- saved from url=(0032)https://psyduck.pkmn.pw/expcalc/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="description" content="Fan Made Exp Calculator for DelugeRPG">
 	<meta name="keywords" content="delugerpg, exp calculator, delugerpg exp, exact exp delugerpg, aihvz exp calculator, aihvz calculator, Aihvz, aihvz,">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,108 +11,162 @@
 	<title>Aihvz's Unofficial Calculator for DelugeRPG</title>
 	<link href="aihvz.ico" rel="shortcut icon">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.2/css/bootstrap.min.css" rel="stylesheet">
 	<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
-	<link href="style.css" rel="stylesheet" media="screen">
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9484966767284869"
-     crossorigin="anonymous"></script>
-</head>
+	<link href="style.css" rel="stylesheet" media="screen"> </head>
 
-<body>	
-	
-<nav class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container" >
-		<div class="navbar-header">
-			<a class="navbar-brand" style="position:relative;top:-9px; color:#FFF;" href="#">
-           <img src="pikachu.png" style="display:inline-block; border-radius:18px;"/>&nbsp;
-            <small>Aihvz's Unofficial Exp Calculator for DelugeRPG</small></a>
-
-	<small style="color:white;position:relative;top:15px;">by</small> 
-	<a href="" style="font-size:11px; font-weight:bold; color:#F00; position:relative;top:15px;">Aihvz</a>
-		<small style="color:grey;position:relative;top:15px;">(beta ver.1 - 20221103)</small>
-           
-		</div>
-        
-		    <button id="note" class="btn btn-sm btn-info navbar-text pull-right" style="color: #FFF;">Note and Usage</button> 
-         
-			<p class="navbar-text pull-right">
-			  
-		</p>    
-        
-
-	</div>
-
-</nav>
-
-<div id="infobox2" ></div>
-
-<div id="infobox" class="alert alert-info text-center" style="display:none;">
-	<a style="text-decoration:none" data-toggle="tooltip" data-placement="bottom" title="The code and design is came from Psyduck's Exp Calculator of D1g1t"> Note: <b >This is "Unofficial/Fan made Exp Calculator for DelugeRPG (up to 100M Exp) - <small>A fork of <a href="https://psyduck.pkmn.pw/expcalc/" target="_blank" style="color:#F00;">Psyduck's Exp Calculator</a></small>".</b></a>
-   <br> It assumes you have already beaten all regions and that your pokemon is at level 100.
-	<br>You can battle any other trainers that give the same amount of exp as those in the suggested solution.
-    <br><b>Usage:</b> Enter your Current Exp and your Target Exp. <u>If a solution is not automatically generated or Exp to target is not turn to 0</u>, Add some exp from the trainer list on the right by clicking on them.
-    <br><small>Thanks to "<b>Mr.Clean</b>" for gathering data about exp on each trainers and wild pokemon. | If you find  bugs / errors, comment on this forum link ( <a href="https://f.pkmn.pw/6/16917" target="_blank" style="color:#F00;">https://f.pkmn.pw/6/16917</a>)</small>
-</div>
-
-<div id="mainpage">
-	<div id="aside">
-		<form class="form-inline" id="entryform">
-			<div class="form-group">
-				<label for="currentExp">Current Exp</label>
-				<input type="number" class="form-control" id="currentExp" name="currentExp" value="0" min="100000" max="100000000" size="10">
+<body>
+	<!-- NavBar -->
+	<nav class="navbar navbar-dark bg-dark navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<div class="" style="position:relative;top:0px; color:#FFF;"> <img src="pikachu.png" style="display:inline-block; border-radius:18px;" />&nbsp; <small style="word-wrap: break-word; font-size: 13px;">Aihvz's Unofficial Exp Calculator for DelugeRPG</small> </div>
 			</div>
-		  	<div class="form-group">
-				<label for="targetExp">Target Exp</label>
-				<input type="number" class="form-control" id="targetExp" name="targetExp" value="0" min="100000" max="100000000" size="10">
+			<div class="btn-group btn-group-sm navbar-text pull-right" role="group">
+				<button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#notes" style="font-size: 12px;"><i class="fa fa-sticky-note"></i>&nbsp;Notes</button>
+				<button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#about" style="font-size: 12px;"><i class="fa fa-info-circle"></i>&nbsp;About</button>
+				<button class="btn btn-outline-light" onclick="window.open('https://aihvz100k.netlify.app/', '_blank');" style="font-size: 12px;"><i class="fa fa-calculator"></i>&nbsp;100K Exp Calculator</button>
 			</div>
-		</form>
-		<div id="targetbox">
-			<b>Exp to target : </b> <span id="exp2target">0</span>
 		</div>
-		<table id="battletable" class="table table-hover borderless">
-			<thead>
-				<tr>
-					<th>Trainer</th>
-                     <th>Info</th>
-					<th>Battles</th>
-					<th>Exp</th>
-					<th>Total</th>
-					<th id="clearsol">×</th>
-				</tr>
-			</thead>
-			<tbody>
-				
-			</tbody>
-			<tfoot>
-				<tr>
-					<th>Total</th>
-                     <th></th>
-					<th></th>
-					<th></th>
-					<th id="bttotal" data-num="0">0</th>
-					<th></th>
-				</tr>
-			</tfoot>
-		</table>
-		<!-- Footer Aside -->
+	</nav>
+	<div id="mainpage">
+		<div id="aside" style="padding: 0px 8px 0 8px;">
+			<form class="form-inline" id="entryform">
+				<div class="input-group input-group-sm mb-3"> <span class="input-group-text" style="width:100px;">Current Exp: </span>
+					<input type="number" class="form-control" id="currentExp" name="currentExp" value="0" min="100000" max="100000000" size="10" autofocus> </div>
+				<div class="input-group input-group-sm mb-3"> <span class="input-group-text" style="width:100px;">Target Exp: </span>
+					<input type="number" class="form-control" id="targetExp" name="targetExp" value="0" min="100000" max="100000000" size="10"> </div>
+			</form>
+			<div id="targetbox" style="color:white;"> <b>Exp to target : </b> <span id="exp2target">0</span> </div>
+			<table id="battletable" class="table table-hover borderless" style="display:none;">
+				<thead>
+					<tr>
+						<th>Trainer</th>
+						<th>Info</th>
+						<th style="text-align:center">Battles</th>
+						<th style="text-align:center">Exp</th>
+						<th style="text-align:center">Total</th>
+						<th id="clearsol">×</th>
+					</tr>
+				</thead>
+				<tbody> </tbody>
+				<tfoot>
+					<tr>
+						<th>Total</th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th id="bttotal" data-num="0">0</th>
+						<th></th>
+					</tr>
+				</tfoot>
+			</table>
+			<!-- Footer Aside 
         <div  style="bottom: 0px;clear: both; width:100%; text-align:center; font-size:13px; background-color:#222; color:#FFF; border-bottom:1px solid #666; display: inline-block; position: absolute;">
         
         </div> 
-      <!-- Footer Aside -->  
-		
+ Footer Aside --></div>
+		<div id="bside"> </div>
 	</div>
-	<div id="bside">
-	</div>   
-</div>
-
-    <!-- Footer Aside 
-        <div style="bottom: 0px;clear: both; width:100%; text-align:center; padding:6px; font-size:13px; background-color:#222; color:#FFF; border-bottom:1px solid #666; position: fixed;">Thanks to "Mr.Clean" for gathering data about exp on each trainers and wild pokemon. | If you find  bugs / errors, comment on this forum link ( <a href="https://www.delugerpg.net/viewtopic.php?f=6&t=16917" target="_blank">https://www.delugerpg.net/viewtopic.php?f=6&t=16917 </a>)</div> 
-       Footer Aside --> 
-      
-     
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script> 
-<script src="script.js"></script>
-
+	<!-- Modal Notes-->
+	<div class="modal fade" id="notes" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="staticBackdropLabel1"> <img src="pikachu.png" style="display:inline-block; border: 1px solid #222; border-radius: 90px;" />&nbsp;&nbsp;&nbsp;Note and Usage</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<a style="text-decoration:none" data-toggle="tooltip" data-placement="bottom" title="The code and design is came from Psyduck's Exp Calculator of d1g1t"> <b>This is "Unofficial/Fan made Exp Calculator for DelugeRPG (up to 100M Exp) - <small>A fork of <a href="https://psyduck.pkmn.pw/expcalc/" target="_blank" style="color:#F00;">Psyduck's Exp Calculator</a></small>".</b></a>
+					<br>
+					<br>
+					<ol>
+						<li>Left Panel - Calculator and Right Panel - List of Wild Pokemon & Trainers Exp.</li>
+						<p> </p>
+						<li> Enter your Current Exp and your Target Exp. Note: It assumes you have already beaten all region gym leaders and that your pokemon is at level 100.</li>
+						<p> </p>
+						<li>It will shows solution button. You can battle any other trainers that give the same amount of exp as those in the suggested solution.</li>
+						<p> </p>
+						<li>If a solution is not automatically generated or Exp to target is not turn to 0, Add some exp from the trainer list on the right by clicking on them. </li>
+						<p> </p>
+						<li>You can click the name of the trainer and pokemon in right panel. It will shows a popover that will redirect to the trainers and map for wild pokemon. </li>
+						<p> </p>
+						<li>If you want to try other DelugeRPG Exp Calculator for DelugeRPG - visit <a href="https://aihvz100k.netlify.app/" target="_blank" style="color:#F00;">Aihvz 100K Exp Calculator</a> and <a href="https://psyduck.pkmn.pw/expcalc/" target="_blank" style="color:#F00;">Official Exp Calculator</a>.</li>
+					</ol>
+				</div>
+				<!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> --></div>
+		</div>
+	</div>
+	<!-- Modal About-->
+	<div class="modal fade" id="about" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="staticBackdropLabel1"><img src="pikachu.png" style="display:inline-block; border: 1px solid #222; border-radius: 90px;" />&nbsp;&nbsp;&nbsp;About</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p style="padding-left:25px;"> Aihvz's Exp Calculator for DelugeRPG is based on Psyduck Exp Calculator. It only works for level 100 pokemon and beatean all the region gym leaders. </p>
+					<p style="padding:15px 0px 0px 25px;"> Thanks for these people:
+						<ul>
+							<li> <b>d1g1t</b>
+								<br> Developer of DelugeRPG and Psyduck Exp Calculator. </li>
+							<p> </p>
+							<li> <b>Aihvz, Mr.Clean, -Levi-,  blokerstrikers, -Sevendeadlysins-, Captainskull, Clarence13579, FabulousManlyMan, Heodenings_Waltz, Jacknjill and Piratekid</b>
+								<br> For checking the design & errors and gathering data about exp on each trainers and wild pokemon. </li>
+							<p> </p>
+							<li> <b>To All Players who helped me and also GitHub Community.</b> </li>
+							<p> </p>
+							<li> <b>Respective owners of the images used on this page.</b> </li>
+						</ul>
+					</p>
+					<hr style="border:1px solid #222; margin-left:25px;">
+					<h4 style="padding:0px 0px 10px 25px; font-weight:bold;" align="left"><img src="images/slowpoke.png" style="display:inline-block; border: 1px solid #222; border-radius: 90px;" />&nbsp;&nbsp;&nbsp;Change Logs</h4>
+					<div style="padding-left:25px;">
+						<p> <b><u>version 0.1</u></b>
+							<br> Deployed - 2020/04/26
+							<br>
+							<ul>
+								<li> Unofficial Exp Calculator for 25M</li>
+							</ul>
+						</p>
+						<p> <b><u>version 0.2</u></b>
+							<br> Added and Update - 2020/05/04
+							<br> The web page deployed in github.
+							<ul>
+								<li>Added the 50M to 100M Exp Calculator.</li>
+								<li>Change the webpage design.</li>
+								<li>Change exp details based on the new update.</li>
+							</ul> <b><u>version 0.2b</u></b>
+							<br> Update - 2020/09/03
+							<ul>
+								<li>Make it reponsive webpage.</li>
+								<li>Fixed some of the Trainers Exp Info.</li>
+								<li>Fixed minor errors.</li>
+							</ul> <b><u>version 0.3</u></b>
+							<br> Added/Update - 2022/11/03
+							<ul>
+								<li>Aenan's Calculator change to Aihvz Calculator</li>
+								<li>Added About and Change the Notes and Usage.</li>
+								<li>Training Accounts
+									<ul>
+										<li>Update the Exp Battle of Trainers List.</li>
+									</ul>
+								</li>
+								<li>A popover or link for trainer/wild pokemon in the table which have a desktop and mobile button link. (Ongoing).</li>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.2/js/bootstrap.min.js"></script>
+	<script src="script.js"></script>
 </body>
+
 </html>
