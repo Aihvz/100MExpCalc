@@ -140,6 +140,10 @@ body {
 	background-color: #CEFFC6;
 }
 
+.bg-wild-pokemon {
+	background-color: #CEFFC6;
+}
+
 .borderless > tbody > tr > td, .borderless > thead > tr > th {
 	border-top: 3px solid white;
 	border-bottom: 3px solid white;
