@@ -24,6 +24,13 @@
 	{ "opp": "Blaine", "e25": 3690, "e50": 1845, "e75": 923, "e100": 462, "head": "Kanto-Gym" },
 	{ "opp": "Giovanni", "e25": 4994, "e50": 2497, "e75": 1249, "e100": 625, "head": "Kanto-Gym" },
 
+	{ "opp": "Lorelei", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Kanto-Gym" },
+	{ "opp": "Bruno", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Kanto-Gym" },
+	{ "opp": "Agatha", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Kanto-Gym" },
+	{ "opp": "Lance", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Kanto-Gym" },
+
+	{ "opp": "Blue", "e25": 19887, "e50": 9944, "e75": 4972, "e100": 2486, "head": "Kanto-Gym" },
+
 	
 	{ "opp": "Falkner", "e25": 486, "e50": 243, "e75": 122, "e100": 61, "head": "Johto-Gym" },
 	{ "opp": "Bugsy", "e25": 1039, "e50": 520, "e75": 260, "e100": 130, "head": "Johto-Gym" },	
@@ -34,7 +41,16 @@
 	{ "opp": "Pryce", "e25": 2121, "e50": 1061, "e75": 531, "e100": 266, "head": "Johto-Gym" },	
 	{ "opp": "Clair", "e25": 3425, "e50": 1713, "e75": 857, "e100": 429, "head": "Johto-Gym" },
 
-	
+	{ "opp": "Will", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Johto-Gym" },
+	{ "opp": "Koga", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Johto-Gym" },
+	{ "opp": "Bruno", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Johto-Gym" },
+	{ "opp": "Karen", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Johto-Gym" },
+
+	{ "opp": "Lance", "e25": 19887, "e50": 9944, "e75": 4972, "e100": 2486, "head": "Johto-Gym" },
+	{ "opp": "Red", "e25": 19887, "e50": 9944, "e75": 4972, "e100": 2486, "head": "Johto-Gym" },
+
+
+
 	{ "opp": "Roxanne", "e25": 574, "e50": 287, "e75": 144, "e100": 72, "head": "Hoenn-Gym" },
 	{ "opp": "Brawly", "e25": 663, "e50": 332, "e75": 166, "e100": 83, "head": "Hoenn-Gym" },	
 	{ "opp": "Wattson", "e25": 1304, "e50": 652, "e75": 326, "e100": 163, "head": "Hoenn-Gym" },	
@@ -45,6 +61,14 @@
 	{ "opp": "Wallace", "e25": 4905, "e50": 2453, "e75": 1227, "e100": 614, "head": "Hoenn-Gym" },
 	{ "opp": "Juan", "e25": 4729, "e50": 2365, "e75": 1183, "e100": 592, "head": "Hoenn-Gym" },
 
+	{ "opp": "Sidney", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Hoenn-Gym" },
+	{ "opp": "Phoebe", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Hoenn-Gym" },
+	{ "opp": "Glacia", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Hoenn-Gym" },
+	{ "opp": "Drake", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Hoenn-Gym" },
+
+	{ "opp": "Steven", "e25": 19887, "e50": 9944, "e75": 4972, "e100": 2486, "head": "Hoenn-Gym" },
+	{ "opp": "Wallace", "e25": 19887, "e50": 9944, "e75": 4972, "e100": 2486, "head": "Hoenn-Gym" },
+
 	
 	{ "opp": "Roark", "e25": 840, "e50": 420, "e75": 210, "e100": 105, "head": "Sinnoh-Gym" },
 	{ "opp": "Gardenia", "e25": 1370, "e50": 685, "e75": 343, "e100": 172, "head": "Sinnoh-Gym" },	
@@ -54,6 +78,14 @@
 	{ "opp": "Byron", "e25": 2563, "e50": 1282, "e75": 641, "e100": 321, "head": "Sinnoh-Gym" },
 	{ "opp": "Candice", "e25": 3668, "e50": 1834, "e75": 917, "e100": 459, "head": "Sinnoh-Gym" },	
 	{ "opp": "Volkner", "e25": 4198, "e50": 2099, "e75": 1050, "e100": 525, "head": "Sinnoh-Gym" },
+
+	{ "opp": "Aaron", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Sinnoh-Gym" },
+	{ "opp": "Bertha", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Sinnoh-Gym" },	
+	{ "opp": "Flint", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Sinnoh-Gym" },
+	{ "opp": "Lucian", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Sinnoh-Gym" },	
+
+	{ "opp": "Cynthia", "e25": 19887, "e50": 9944, "e75": 4972, "e100": 2486, "head": "Sinnoh-Gym" },
+
 
 	
 	{ "opp": "Cilan", "e25": 574, "e50": 287, "e75": 144, "e100": 72, "head": "Unova-Gym" },
@@ -70,6 +102,15 @@
 	{ "opp": "Drayden", "e25": 3093, "e50": 1547, "e75": 774, "e100": 387, "head": "Unova-Gym" },
 	{ "opp": "Marlon", "e25": 3292, "e50": 1646, "e75": 823, "e100": 412, "head": "Unova-Gym" },
 
+	{ "opp": "Shauntal", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Unova-Gym" },
+	{ "opp": "Marshal", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Unova-Gym" },
+	{ "opp": "Grimsley", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Unova-Gym" },
+	{ "opp": "Caitlin", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Unova-Gym" },
+
+	{ "opp": "Alder", "e25": 19887, "e50": 9944, "e75": 4972, "e100": 2486, "head": "Unova-Gym" },
+	{ "opp": "Iris", "e25": 19887, "e50": 9944, "e75": 4972, "e100": 2486, "head": "Unova-Gym" },
+
+
 
 	{ "opp": "Viola", "e25": 486, "e50": 243, "e75": 122, "e100": 61, "head": "Kalos-Gym" },
 	{ "opp": "Grant", "e25": 1105, "e50": 553, "e75": 277, "e100": 139, "head": "Kalos-Gym" },
@@ -79,6 +120,13 @@
 	{ "opp": "Valerie", "e25": 2629, "e50": 1315, "e75": 658, "e100": 329, "head": "Kalos-Gym" },
 	{ "opp": "Olympia", "e25": 3027, "e50": 1514, "e75": 757, "e100": 379, "head": "Kalos-Gym" },	
 	{ "opp": "Wulfric", "e25": 3756, "e50": 1878, "e75": 939, "e100": 470, "head": "Kalos-Gym" },
+
+	{ "opp": "Malva", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Kalos-Gym" },
+	{ "opp": "Siebold", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Kalos-Gym" },
+	{ "opp": "Wikstrom", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Kalos-Gym" },
+	{ "opp": "Drasna", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Kalos-Gym" },
+
+	{ "opp": "Diantha", "e25": 19887, "e50": 9944, "e75": 4972, "e100": 2486, "head": "Kalos-Gym" },
 
 	
 	{ "opp": "Ilima", "e25": 1061, "e50": 531, "e75": 266, "e100": 133, "head": "Alola-Gym" },
@@ -93,6 +141,14 @@
 	{ "opp": "Kukui", "e25": 4729, "e50": 2365, "e75": 1183, "e100": 592, "head": "Alola-Gym" },
 	{ "opp": "Mina", "e25": 4044, "e50": 2022, "e75": 1011, "e100": 506, "head": "Alola-Gym" },
 	{ "opp": "Hapu", "e25": 4795, "e50": 2398, "e75": 1199, "e100": 600, "head": "Alola-Gym" },
+
+	{ "opp": "Molayne", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Alola-Gym" },
+	{ "opp": "Olivia", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Alola-Gym" },
+	{ "opp": "Acerola", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Alola-Gym" },
+	{ "opp": "Kahili", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Alola-Gym" },
+
+	{ "opp": "Hau", "e25": 19887, "e50": 9944, "e75": 4972, "e100": 2486, "head": "Alola-Gym" },
+
 	
 	{ "opp": "Milo", "e25": 862, "e50": 431, "e75": 216, "e100": 108, "head": "Galar-Gym" },
 	{ "opp": "Nessa", "e25": "1525", "e50": 763, "e75": 382, "e100": 191, "head": "Galar-Gym" },	
@@ -104,9 +160,33 @@
 	{ "opp": "Melony", "e25": "3602", "e50": 1801, "e75": 901, "e100": 451, "head": "Galar-Gym" },
 	{ "opp": "Piers", "e25": "3977", "e50": 1989, "e75": 995, "e100": 498, "head": "Galar-Gym" },
 	{ "opp": "Raihan", "e25": "4132", "e50": 2066, "e75": 1033, "e100": 517, "head": "Galar-Gym" },
+
+	{ "opp": "Marnie", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Galar-Gym" },
+	{ "opp": "Hop", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Galar-Gym" },
+	{ "opp": "Bede", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Galar-Gym" },
+
+	{ "opp": "Leon", "e25": 19887, "e50": 9944, "e75": 4972, "e100": 2486, "head": "Galar-Gym" },
+
+
+
+	{ "opp": "Katy", "e25": 950, "e50": 475, "e75": 238, "e100": 119, "head": "Paldea-Gym" },
+	{ "opp": "Brassius", "e25": 1083, "e50": 542, "e75": 271, "e100": 136, "head": "Paldea-Gym" },
+	{ "opp": "Kofu", "e25": 1944, "e50": 972, "e75": 486, "e100": 243, "head": "Paldea-Gym" },
+	{ "opp": "Iono", "e25": 2055, "e50": 1028, "e75": 514, "e100": 257, "head": "Paldea-Gym" },
+	{ "opp": "Larry", "e25": 2342, "e50": 1171, "e75": 586, "e100": 293, "head": "Paldea-Gym" },
+	{ "opp": "Ryme", "e25": 3646, "e50": 1823, "e75": 912, "e100": 456, "head": "Paldea-Gym" },
+	{ "opp": "Tulip", "e25": 3911, "e50": 1956, "e75": 978, "e100": 489, "head": "Paldea-Gym" },
+	{ "opp": "Grusha", "e25": 4176, "e50": 2088, "e75": 1044, "e100": 522, "head": "Paldea-Gym" },
+
+	{ "opp": "Rika", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Paldea-Gym" },
+	{ "opp": "Poppy", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Paldea-Gym" },
+	{ "opp": "Larry", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Paldea-Gym" },
+	{ "opp": "Hassel", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Paldea-Gym" },
+
+	{ "opp": "Geeta", "e25": 19887, "e50": 9944, "e75": 4972, "e100": 2486, "head": "Paldea-Gym" },
+
 	
 	{ "opp": "Lana", "e25": "19887", "e50": 9944, "e75": 4972, "e100": 2486, "head": "VIP" },
-    
         { "opp": "Giovanni", "e25": "16572", "e50": 8286, "e75": 4143, "e100": 2072, "head": "VIP" },
     	{ "opp": "Janine", "e25": "16572", "e50": 8286, "e75": 4143, "e100": 2072, "head": "VIP" },	
     	{ "opp": "Juan", "e25": "16572", "e50": 8286, "e75": 4143, "e100": 2072, "head": "VIP" },
@@ -268,6 +348,8 @@
 	{ "opp": "Scientist Athena", "e25": "6806", "e50": 3403, "e75": 1702, "e100": 851, "head": "Trainers" },
 	{ "opp": "Sightseer Mitch", "e25": "5568", "e50": 2784, "e75": 1392, "e100": 696, "head": "Trainers" },
 	{ "opp": "Sightseer Venus", "e25": "5568", "e50": 2784, "e75": 1392, "e100": 696, "head": "Trainers" },
+	{ "opp": "Student Jaxon", "e25": "3031", "e50": 1516, "e75": 758, "e100": 379, "head": "Trainers" },
+	{ "opp": "Student Zahira", "e25": "3031", "e50": 1516, "e75": 758, "e100": 379, "head": "Trainers" },
 	{ "opp": "Swimmer Rai", "e25": "7888", "e50": 3944, "e75": 1972, "e100": 986, "head": "Trainers" },
 	{ "opp": "Swimmer Rias", "e25": "4207", "e50": 2104, "e75": 1052, "e100": 526, "head": "Trainers" },
 	{ "opp": "Swimmer Shiv", "e25": "5537", "e50": 2769, "e75": 1385, "e100": 693, "head": "Trainers" },
