@@ -124,15 +124,15 @@ body {
 	background-color: #D3FCFE;
 }
 
-.bg-kanto-gym, .bg-johto-gym, .bg-hoenn-gym, .bg-sinnoh-gym, .bg-unova-gym, .bg-kalos-gym, .bg-alola-gym, .bg-galar-gym {
+.bg-kanto-gym, .bg-johto-gym, .bg-hoenn-gym, .bg-sinnoh-gym, .bg-unova-gym, .bg-kalos-gym, .bg-alola-gym, .bg-galar-gym, .bg-paldea-gym {
 	background-color: #FFFFCE;
 }
 
-.bg-kanto-elite-gym, .bg-johto-elite-gym, .bg-hoenn-elite-gym, .bg-sinnoh-elite-gym, .bg-unova-elite-gym, .bg-kalos-elite-gym, .bg-alola-elite-gym, .bg-galar-elite-gym {
+.bg-kanto-elite-gym, .bg-johto-elite-gym, .bg-hoenn-elite-gym, .bg-sinnoh-elite-gym, .bg-unova-elite-gym, .bg-kalos-elite-gym, .bg-alola-elite-gym, .bg-galar-elite-gym, .bg-galar-paldea-gym {
 	background-color: #E3F2FD;
 }
 
-.bg-kanto-champion-gym, .bg-johto-champion-gym, .bg-hoenn-champion-gym, .bg-sinnoh-champion-gym, .bg-unova-champion-gym, .bg-kalos-champion-gym, .bg-alola-champion-gym, .bg-galar-champion-gym {
+.bg-kanto-champion-gym, .bg-johto-champion-gym, .bg-hoenn-champion-gym, .bg-sinnoh-champion-gym, .bg-unova-champion-gym, .bg-kalos-champion-gym, .bg-alola-champion-gym, .bg-galar-champion-gym, .bg-paldea-champion-gym {
 	background-color: #E8EAF6;
 }
 
