@@ -102,10 +102,10 @@
 	{ "opp": "Drayden", "e25": 3093, "e50": 1547, "e75": 774, "e100": 387, "head": "Unova-Gym" },
 	{ "opp": "Marlon", "e25": 3292, "e50": 1646, "e75": 823, "e100": 412, "head": "Unova-Gym" },
 
-	{ "opp": "Shauntal", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Unova-Elite-Gym" },
-	{ "opp": "Marshal", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Unova-Elite-Gym" },
-	{ "opp": "Grimsley", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Unova-Elite-Gym" },
-	{ "opp": "Caitlin", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Unova-Elite-Gym" },
+	{ "opp": "Shauntal", "e25": 8838, "e50": 4419, "e75": 2210, "e100": 1105, "head": "Unova-Elite-Gym" },
+	{ "opp": "Marshal", "e25": 8838, "e50": 4419, "e75": 2210, "e100": 1105, "head": "Unova-Elite-Gym" },
+	{ "opp": "Grimsley", "e25": 8838, "e50": 4419, "e75": 2210, "e100": 1105, "head": "Unova-Elite-Gym" },
+	{ "opp": "Caitlin", "e25": 8838, "e50": 4419, "e75": 2210, "e100": 1105, "head": "Unova-Elite-Gym" },
 
 	{ "opp": "Alder", "e25": 19887, "e50": 9944, "e75": 4972, "e100": 2486, "head": "Unova-Champion-Gym" },
 	{ "opp": "Iris", "e25": 19887, "e50": 9944, "e75": 4972, "e100": 2486, "head": "Unova-Champion-Gym" },
@@ -121,10 +121,10 @@
 	{ "opp": "Olympia", "e25": 3027, "e50": 1514, "e75": 757, "e100": 379, "head": "Kalos-Gym" },	
 	{ "opp": "Wulfric", "e25": 3756, "e50": 1878, "e75": 939, "e100": 470, "head": "Kalos-Gym" },
 
-	{ "opp": "Malva", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Kalos-Elite-Gym" },
-	{ "opp": "Siebold", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Kalos-Elite-Gym" },
-	{ "opp": "Wikstrom", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Kalos-Elite-Gym" },
-	{ "opp": "Drasna", "e25": 11048, "e50": 5524, "e75": 2762, "e100": 1381, "head": "Kalos-Elite-Gym" },
+	{ "opp": "Malva", "e25": 8838, "e50": 4419, "e75": 2210, "e100": 1105, "head": "Kalos-Elite-Gym" },
+	{ "opp": "Siebold", "e25": 8838, "e50": 4419, "e75": 2210, "e100": 1105, "head": "Kalos-Elite-Gym" },
+	{ "opp": "Wikstrom", "e25": 8838, "e50": 4419, "e75": 2210, "e100": 1105, "head": "Kalos-Elite-Gym" },
+	{ "opp": "Drasna", "e25": 8838, "e50": 4419, "e75": 2210, "e100": 1105, "head": "Kalos-Elite-Gym" },
 
 	{ "opp": "Diantha", "e25": 19887, "e50": 9944, "e75": 4972, "e100": 2486, "head": "Kalos-Champion-Gym" },
 
