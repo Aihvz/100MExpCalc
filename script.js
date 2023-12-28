@@ -2,27 +2,27 @@ var prepdata = [];
 var pdata = [];
 var solvedsoluton = '';
 var sumcache = [];
-var eset = 25;
+var eset = 10;
 var load_sums_wait = 0;
 $(document).ready(function() {
-	$.getJSON('expdata.json?v=20190919', function(data) {
+	$.getJSON('expdata.json', function(data) {
 		var temphead = '';
 		data.forEach(function(batt, i) {
 			pdata.push({
 				'opp': batt.opp,
-				'exp25': batt.e25,
+				'exp10': batt.e10,
 				'exp50': batt.e50,
-				'exp75': batt.e75,
 				'exp100': batt.e100,
+				'exp150': batt.e150,
 				'head': batt.head
 			});
 		});
 		pdata.sort(function(a, b) {
-			return b.exp25 - a.exp25;
+			return b.exp10 - a.exp10;
 		});
 		pdata.forEach(function(batt, i) {
 			if(typeof(batt.opp) !== "undefined") {
-				$('#bside').append('<div id="batt' + i + '" class="btn btn-default battler bg-' + toLower(batt.head) + '" data-exp25="' + batt.exp25 + '" data-exp50="' + batt.exp50 + '" data-exp75="' + batt.exp75 + '" data-exp100="' + batt.exp100 + '" data-opp="' + batt.opp + '" data-head="' + toLower(batt.head) + '">' + '<b>' + batt.opp + '</b><br>' + '<small>(' + batt.head + ')</small><br>' + 'Exp: <span class="exp">' + numberWithCommas(batt.exp25) + '</span>' + '</div>');
+				$('#bside').append('<div id="batt' + i + '" class="btn btn-default battler bg-' + toLower(batt.head) + '" data-exp10="' + batt.exp10 + '" data-exp50="' + batt.exp50 + '" data-exp100="' + batt.exp100 + '" data-exp150="' + batt.exp150 + '" data-opp="' + batt.opp + '" data-head="' + toLower(batt.head) + '">' + '<b>' + batt.opp + '</b><br>' + '<small>(' + batt.head + ')</small><br>' + 'Exp: <span class="exp">' + numberWithCommas(batt.exp10) + '</span>' + '</div>');
 			}
 		});
 		$('#bside').data('dataset', eset);
@@ -71,7 +71,7 @@ $(document).ready(function() {
 			createAlert('warning', 'It is not possible to obtain less than 4 exp from a battle!');
 		} else {
 			//Check against limits
-			expsets = [25, 50, 75, 100];
+			expsets = [10, 50, 100, 150];
 			//Error Check
 			error = 0;
 			for(i = 0; i <= expsets.length; i++) {
@@ -94,7 +94,7 @@ $(document).ready(function() {
 				var remaining = targExp - currExp - calcExp;
 				$('#exp2target').text(numberWithCommas(remaining)).data('num', remaining);
 				//console.log('exp2target updated!');
-				if(!$.isEmptyObject(pdata) && !$.isEmptyObject(prepdata) && remaining >= 23) findPossibleCombo();
+				if(!$.isEmptyObject(pdata) && !$.isEmptyObject(prepdata) && remaining >= 24) findPossibleCombo();
 			}
 		}
 	});
@@ -319,7 +319,7 @@ function load_sums(callback) {
 	}
 	if(!(eset in sumcache)) {
 		load_sums_wait = 1;
-		$.getJSON('data/sums_sub' + eset + '.json?v=20190919', function(data) {
+		$.getJSON('data/sums_sub' + eset + '.json', function(data) {
 			prepdata = data;
 			for(var i = 0; i < pdata.length; i++) {
 				if(typeof(pdata[i]['exp' + eset]) !== 'undefined') {
