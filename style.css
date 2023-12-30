@@ -16,10 +16,12 @@ body {
 }
 
 #aside {
-	width: 34%;
+	width: 40%;
 	position: fixed;
 	/* background-color: #222; */
 	height: 90%;
+	height: 92vh;
+	overflow: auto;
 }
 
 #bside {
@@ -27,7 +29,7 @@ body {
 	border-left: 1px solid #dddddd;
 	text-align: center;
 	height: 92vh;
-	margin-left: 34%;
+	margin-left: 40%;
 	overflow: auto;
 }
 
@@ -35,7 +37,7 @@ body {
 	font-size: 14px;
 	line-height: 15px;
 	width: 140px;
-	height: 80px;
+	height: 85px;
 	margin: 3px;
 	text-align: center;
 	display: inline-block;
@@ -108,7 +110,7 @@ body {
 	background-color: #FFF3E0;
 }
 
-.bg-strong {
+.bg-strong, .bg-training-accounts {
 	background-color: #FCE4EC;
 }
 
@@ -185,6 +187,11 @@ body {
 		position: relative;
 	}
 
+	#battletable {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+	}
 	#bside {
 		margin-left: 0;
 		width: 100%;
