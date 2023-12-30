@@ -4,6 +4,7 @@ var solvedsoluton = '';
 var sumcache = [];
 var eset = 10;
 var load_sums_wait = 0;
+
 $(document).ready(function() {
 	$.getJSON('expdata.json', function(data) {
 		var temphead = '';
@@ -14,7 +15,9 @@ $(document).ready(function() {
 				'exp50': batt.e50,
 				'exp100': batt.e100,
 				'exp150': batt.e150,
-				'head': batt.head
+				'head': batt.head,
+				'btid': batt.btid,
+				'base': batt.base
 			});
 		});
 		pdata.sort(function(a, b) {
@@ -22,7 +25,7 @@ $(document).ready(function() {
 		});
 		pdata.forEach(function(batt, i) {
 			if(typeof(batt.opp) !== "undefined") {
-				$('#bside').append('<div id="batt' + i + '" class="btn btn-default battler bg-' + toLower(batt.head) + '" data-exp10="' + batt.exp10 + '" data-exp50="' + batt.exp50 + '" data-exp100="' + batt.exp100 + '" data-exp150="' + batt.exp150 + '" data-opp="' + batt.opp + '" data-head="' + toLower(batt.head) + '">' + '<b>' + batt.opp + '</b><br>' + '<small>(' + batt.head + ')</small><br>' + 'Exp: <span class="exp">' + numberWithCommas(batt.exp10) + '</span>' + '</div>');
+				$('#bside').append('<div id="batt' + i + '" class="btn btn-default battler bg-' + toLower(batt.head) + '" data-exp10="' + batt.exp10 + '" data-exp50="' + batt.exp50 + '" data-exp100="' + batt.exp100 + '" data-exp150="' + batt.exp150 + '" data-opp="' + batt.opp + '" data-head="' + toLower(batt.head) + '" data-btid="' + batt.btid + '" data-base="' + batt.base + '" style="padding-top:14px;">' + '<b style="font-size: 13px;">' + batt.opp + '</b><br>' + '<span style="font-size: 8px; font-weight: bold;">(' + batt.head.replace(/-/g, ' ').toUpperCase() + ')</span><br>' + '<span class="exp badge text-bg-light" style="font-size: 12px;"> EXP: ' + numberWithCommas(batt.exp10) + '</span>' + '</div>');
 			}
 		});
 		$('#bside').data('dataset', eset);
@@ -32,11 +35,15 @@ $(document).ready(function() {
 			if($('#exp2target').data('num') > 0) findPossibleCombo();
 		});
 	});
+
+	// Handle click on trainers
 	$(document).on('click', ".battler", function(e) {
 		var bid = $(this).attr('id').substring(4);
-		addBattleEntry(bid, $(this).data('opp'), $(this).data('exp' + eset), $(this).data('head'));
+		addBattleEntry(bid, $(this).data('opp'), $(this).data('exp' + eset), $(this).data('head'), $(this).data('btid'), $(this).data('base'));
 		calcTotals();
 	});
+
+	// Handle click on battle item close button
 	$(document).on('click', ".btclose .close", function(e) {
 		var btitem = $(this).closest('tr.btitem');
 		var battles = btitem.find('.battles').text();
@@ -50,10 +57,14 @@ $(document).ready(function() {
 		}
 		calcTotals();
 	});
+
+	// Handle click on clear solution button
 	$(document).on('click', "#clearsol", function(e) {
 		$('#battletable tbody tr').remove();
 		calcTotals();
 	});
+
+	// Handle input change in entry form
 	$('#entryform input').on('change', function() {
 		var currExp = checkAndFixExp($('#currentExp').val());
 		var targExp = checkAndFixExp($('#targetExp').val());
@@ -98,9 +109,12 @@ $(document).ready(function() {
 			}
 		}
 	});
+
 	//$('#entryform input:first-of-type').trigger('change');
+	// Tooltip initialization
 	$('[data-toggle="tooltip"]').tooltip();
-	//note
+
+	// Note toggle button
 	$(document).on('click', "#note", function(e) {
 		$('#infobox2').slideUp();
 		$('#infobox').slideDown();
@@ -109,7 +123,7 @@ $(document).ready(function() {
 		$('#note').attr("class", "btn btn-sm btn-info")
 		$('#note').attr("id", "hide")
 	});
-	//hidenote
+	// Hide note button
 	$(document).on('click', "#hide", function(e) {
 		$('#infobox').slideUp();
 		$('#infobox2').slideDown();
@@ -125,7 +139,18 @@ $(document).ready(function() {
 		removeAlert();
 		loadSolution();
 	});
+
+    //Training Accounts (Normal/Inverse)
+	$("#battnormal, #battinverse").click(function () {
+        var selectedTrainer = $("#s-trainer").val();
+        var isInverse = $(this).attr("id") === "battinverse";
+        var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        var baseURL = isMobile ? "https://m.delugerpg.com" : "https://www.delugerpg.com";
+        var battleURL = `${baseURL}/battle/computer/u/${selectedTrainer}${isInverse ? '/inverse' : ''}`;
+        window.open(battleURL, '_blank');
+    });
 });
+
 
 function toLower(x) {
 	return x.toLowerCase();
@@ -244,17 +269,19 @@ function findPossibleCombo() {
 	}
 }
 
+// Load Solution Function
 function loadSolution() {
 	var exps = solvedsoluton.split('+').filter(Boolean);
 	//console.log(exps);
 	for(var i = 0; i < exps.length; i++) {
 		var trainer = findTrainerByExp(exps[i]);
 		//console.log(trainer);
-		addBattleEntry(trainer.id, trainer.opp, trainer['exp' + eset], trainer.head);
+		addBattleEntry(trainer.id, trainer.opp, trainer['exp' + eset], trainer.head, trainer.btid, trainer.base);
 	}
 	calcTotals();
 }
 
+// Load Trainers for Calculation Function
 function loadTrainers4Calc(num, max) {
 	var all_trainers = [];
 	all_trainers = pdata;
@@ -274,6 +301,7 @@ function loadTrainers4Calc(num, max) {
 	return ret_trainers;
 }
 
+// Find Trainer by Experience Function
 function findTrainerByExp(exp) {
 	var trainer = [];
 	for(var i = 0; i < pdata.length; i++) {
@@ -289,16 +317,67 @@ function findTrainerByExp(exp) {
 	return trainer;
 }
 
-function addBattleEntry(bid, opp, exp, head) {
-	if($('#bt_' + bid).length) {
-		var battles = $('#bt_' + bid + ' .battles').text() * 1 + 1;
-		$('#bt_' + bid + ' .battles').text(battles);
-		$('#bt_' + bid + ' .total').data('num', battles * exp).text(numberWithCommas(battles * exp));
-	} else {
-		var html = '<tr class="btitem bg-' + toLower(head) + '" id="bt_' + bid + '">' + '<td class="name">' + opp + '</td>' + '<td class="name" style="text-align:left; font-size:12px; text-transform: uppercase;">' + head + '</td>' + '<td class="battles" style="text-align:center">1</td>' + '<td class="exp" data-num="' + exp + '" style="text-align:center">' + numberWithCommas(exp) + '</td>' + '<td class="total" data-num="' + exp + '" style="text-align:center">' + numberWithCommas(exp) + '</td>' + '<td class="btclose"><span badge text-bg-light class="close">×</span></td>' + '</tr>';
-		$('#battletable').append(html);
-	}
+
+// Add Battle Entry Function
+function addBattleEntry(bid, opp, exp, head, btid, base) {
+    if ($('#bt_' + bid).length) {
+        var battles = $('#bt_' + bid + ' .battles').text() * 1 + 1;
+        $('#bt_' + bid + ' .battles').text(battles);
+        $('#bt_' + bid + ' .total').data('num', battles * exp).text(numberWithCommas(battles * exp));
+    } else {
+        var html = '';
+        html = '<tr class="btitem bg-' + toLower(head) + '" id="bt_' + bid + '">' +
+            '<td class="name" style="text-align:left; font-size:12px; text-transform: uppercase;">' + opp + ' (' + head.replace(/-/g, ' ') + ')</td>' +
+            '<td class="battles" style="text-align:center">1</td>' +
+            '<td class="exp" data-num="' + exp + '" style="text-align:center">' + numberWithCommas(exp) + '</td>' +
+            '<td class="total" data-num="' + exp + '" style="text-align:center">' + numberWithCommas(exp) + '</td>' +
+			'<td class="" style="text-align:center">' + getButtonsHtml(base, btid) + '</td>' +
+            '<td class="btclose" style="text-align:right;"><span badge text-bg-light class="close">&nbsp;×&nbsp;</span></td>' +
+            '</tr>';
+
+        $('#battletable').append(html);
+    }
 }
+
+// Function to check if the device is mobile
+function isMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+// Function to get the buttons HTML based on button id
+function getButtonsHtml(base, btid) {
+    var mobilePrefix = isMobile() ? 'https://m.delugerpg.com' : 'https://www.delugerpg.com';
+    var battleLink = '';
+
+    switch (base) {
+        case 'gym':
+            battleLink = mobilePrefix + '/battle/gym/' + btid;
+            return '<button id="gym" class="btn btn-primary btn-sm btn-action" style="--bs-btn-padding-y: .1rem; --bs-btn-padding-x: .6rem; --bs-btn-font-size: .75rem;" onclick="window.open(\'' + battleLink + '\', \'_blank\');">Battle</button>';
+
+        case 'trainer':
+            return '<div class="btn-group btn-group-sm" role="group"><button id="normal" class="btn btn-primary btn-sm btn-action" style="--bs-btn-padding-y: .1rem; --bs-btn-padding-x: .6rem; --bs-btn-font-size: .75rem;" onclick="redirectBattle(\'trainer\', ' + btid + ', false);">Normal</button><button id="inverse" class="btn btn-dark btn-sm btn-action" style="--bs-btn-padding-y: .2rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" onclick="redirectBattle(\'trainer\', ' + btid + ', true);">Inverse</button></div>';
+
+        case 'pokemon':
+            battleLink = isMobile() ? mobilePrefix + '/home#maps' : 'https://www.delugerpg.com/home#maps';
+            return '<button id ="maps" class="btn btn-primary btn-sm btn-action" style="--bs-btn-padding-y: .1rem; --bs-btn-padding-x: .6rem; --bs-btn-font-size: .75rem;" onclick="window.open(\'' + battleLink + '\', \'_blank\');">Go to Maps</button>';
+
+        case 'training':
+            return '<button id="training" class="btn btn-primary btn-sm btn-action" style="--bs-btn-padding-y: .1rem; --bs-btn-padding-x: .6rem; --bs-btn-font-size: .75rem;" data-bs-toggle="modal" data-bs-target="#train">Battle</button>';
+
+        default:
+            return '';
+    }
+}
+
+// Function to redirect based on battle type and inverse condition
+function redirectBattle(battleType, btid, isInverse) {
+    var mobilePrefix = isMobile() ? 'https://m.delugerpg.com' : 'https://www.delugerpg.com';
+    var battleLink = isInverse ? mobilePrefix + '/battle/' + battleType + '/' + btid + '/inverse' : mobilePrefix + '/battle/' + battleType + '/' + btid;
+    window.open(battleLink, '_blank');
+}
+
+
+
 
 function ucfirst(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
@@ -310,6 +389,7 @@ function toLower(x) {
 	return x.toLowerCase();
 }
 
+// Load Sums Function
 function load_sums(callback) {
 	if(load_sums_wait) {
 		setTimeout(function() {
@@ -340,6 +420,7 @@ function load_sums(callback) {
 	}
 }
 
+// Reload Experiences Function
 function reload_exps() {
 	dataset = $('#bside').data('dataset');
 	if(dataset != eset) {
