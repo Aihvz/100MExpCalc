@@ -1,312 +1,403 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <meta name="description" content="Fan Made Exp Calculator for DelugeRPG">
-      <meta name="keywords" content="delugerpg, exp calculator, delugerpg exp, exact exp delugerpg, aihvz exp calculator, aihvz calculator, Aihvz, aihvz, Yhan Yhan, Yhan, Yhani, yhan yhan, yhan, yhani, magikarp calculator" name="keywords">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Aihvz Unofficial Calculator for DelugeRPG</title>
-      <link href="aihvz.ico" rel="shortcut icon">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.2/css/bootstrap.min.css" rel="stylesheet">
-      <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
-      <link href="style.css" rel="stylesheet" media="screen">
-   </head>
-   <body>
-      <!-- NavBar -->
-      <nav class="navbar navbar-dark bg-dark navbar-fixed-top">
-         <div class="container">
-            <div class="navbar-header">
-               <div class="" style="position:relative;top:0px; color:#FFF;"> <img src="pikachu.png" style="display:inline-block; border-radius:18px;" />&nbsp; <small style="word-wrap: break-word; font-size: 13px;">Aihvz Unofficial Exp Calculator for DelugeRPG</small> </div>
-            </div>
-            <div class="btn-group btn-group-sm navbar-text pull-right" role="group">
-               <button class="btn btn-outline-light" onclick="window.open('https://www.delugerpg.com/', '_blank');" style="font-size: 12px;"><i class="fa fa-gamepad"></i>&nbsp;&nbsp;Game</button>
-               <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#notes" style="font-size: 12px;"><i class="fa fa-sticky-note"></i>&nbsp;&nbsp;Notes</button>
-               <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#train" style="font-size: 12px;" id="trainings"><i class="fa fa-brands fa fa-battle-net"></i>&nbsp;&nbsp;Training Accounts</button>
-               <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#guide" style="font-size: 12px;"><i class="fa fa-solid fa fa-clipboard"></i>&nbsp;&nbsp;Guide Links</button>
-               <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#about" style="font-size: 12px;"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;About</button>
-               <!-- <button class="btn btn-outline-light" onclick="window.open('https://aihvz100k.netlify.app/', '_blank');" style="font-size: 12px;"><i class="fa fa-calculator"></i>&nbsp;100K Exp Calculator</button> -->
-            </div>
-         </div>
-      </nav>
-      <div id="mainpage">
-         <div id="aside" style="padding: 0px 8px 0 8px;">
-            <form class="form-inline" id="entryform">
-               <div class="input-group input-group-sm mb-3"> <span class="input-group-text" style="width:100px;">Current Exp: </span>
-                  <input type="number" class="form-control" id="currentExp" name="currentExp" value="0" min="100000" max="100000000" size="10" autofocus> 
-               </div>
-               <div class="input-group input-group-sm mb-3"> <span class="input-group-text" style="width:100px;">Target Exp: </span>
-                  <input type="number" class="form-control" id="targetExp" name="targetExp" value="0" min="100000" max="100000000" size="10"> 
-               </div>
-            </form>
-            <div id="targetbox" style="color:none;">
-               <h6><span class="badge text-bg-info"><b>Exp to target : </b> <span id="exp2target">0</span></span></h6>
-            </div>
-            <table id="battletable" class="table table-hover borderless" style="display:none;" >
-               <thead>
-                  <tr class="text-bg-info">
-                     <th width="">Trainer</th>
-                     <th style="text-align:center">Battles</th>
-                     <th style="text-align:center">Exp</th>
-                     <th style="text-align:center">Total</th>
-					 <th style="text-align:center">&nbsp;</th>
-                     <th style="text-align:right;" id="clearsol">×</th>
-                  </tr>
-               </thead>
-               <tbody> </tbody>
-               <tfoot>
-                  <tr>
-                     <th>Total</th>
-                     <th></th>
-                     <th></th>
-					 <th id="bttotal" data-num="0" style="text-align:center">0</th>
-                     <th></th>
-                     <th></th>
-                  </tr>
-               </tfoot>
-            </table>
-            <!-- Footer Aside 
-               <div  style="bottom: 0px;clear: both; width:100%; text-align:center; font-size:13px; background-color:#222; color:#FFF; border-bottom:1px solid #666; display: inline-block; position: absolute;">
-               
-               </div> 
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Fan Made Exp Calculator for DelugeRPG">
+    <meta name="keywords" content="delugerpg, exp calculator, delugerpg exp, exact exp delugerpg, aihvz exp calculator, aihvz calculator, Aihvz, aihvz, Yhan Yhan, Yhan, Yhani, yhan yhan, yhan, yhani, magikarp calculator" name="keywords">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aihvz Unofficial Calculator for DelugeRPG</title>
+    <link href="aihvz.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
+    <link href="style.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <!-- NavBar -->
+    <nav class="navbar navbar-dark bg-dark navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <div class="" style="position:relative;top:0px; color:#FFF;">
+            <img src="pikachu.png" style="display:inline-block; border-radius:18px;" />&nbsp; <small style="word-wrap: break-word; font-size: 13px;">&nbsp;&nbsp;Aihvz Unofficial Exp Calculator for DelugeRPG</small>
+          </div>
+        </div>
+        <ul class="nav navbar-nav navbar-right d-flex flex-row">
+          <li>
+            <a href="https://www.delugerpg.com/" class="btn btn-outline-light border-0" style="font-size: 12px;" target="_blank">
+              <i class="fa fa-gamepad"></i>&nbsp;&nbsp;Game </a>
+          </li>
+          <li>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#notes" class="btn btn-outline-light border-0" style="font-size: 12px;">
+              <i class="fa fa-sticky-note"></i>&nbsp;&nbsp;Notes </a>
+          </li>
+          <li>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#train" class="btn btn-outline-light border-0" style="font-size: 12px;" id="trainings">
+              <i class="fa fa-brands fa fa-battle-net"></i>&nbsp;&nbsp;Training Accounts </a>
+          </li>
+          <li>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#guide" class="btn btn-outline-light border-0" style="font-size: 12px;">
+              <i class="fa fa-solid fa fa-clipboard"></i>&nbsp;&nbsp;Guide Links </a>
+          </li>
+          <li>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#about" class="btn btn-outline-light border-0" style="font-size: 12px;">
+              <i class="fa fa-info-circle"></i>&nbsp;&nbsp;About </a>
+          </li>
+          <!-- <li class="me-2"><a href="https://aihvz100k.netlify.app/" class="btn btn-outline-light" style="font-size: 12px;"><i class="fa fa-calculator"></i>&nbsp;100K Exp Calculator</a></li> -->
+        </ul>
+      </div>
+    </nav>
+    <div id="mainpage">
+      <div id="aside" style="padding: 0px 8px 0 8px;">
+        <form class="form-inline" id="entryform">
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" style="width:100px;">Current Exp: </span>
+            <input type="number" class="form-control" id="currentExp" name="currentExp" value="0" min="100000" max="100000000" size="10" autofocus>
+          </div>
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" style="width:100px;">Target Exp: </span>
+            <input type="number" class="form-control" id="targetExp" name="targetExp" value="0" min="100000" max="100000000" size="10">
+          </div>
+        </form>
+        <div id="targetbox" style="color:none;">
+          <h6>
+            <span class="badge text-bg-info">
+              <b>Exp to target : </b>
+              <span id="exp2target">0</span>
+            </span>
+          </h6>
+        </div>
+        <table id="battletable" class="table table-hover borderless" style="display:none;">
+          <thead>
+            <tr class="text-bg-info">
+              <th width="">Trainer</th>
+              <th style="text-align:center">Battles</th>
+              <th style="text-align:center">EXP</th>
+              <th style="text-align:center">Total</th>
+              <th style="text-align:center">&nbsp;</th>
+              <th style="text-align:right;" id="clearsol">×</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot>
+            <tr>
+              <th>Total</th>
+              <th></th>
+              <th></th>
+              <th id="bttotal" data-num="0" style="text-align:center">0</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </tfoot>
+        </table>
+        <!-- Footer Aside 
+               <div  style="bottom: 0px;clear: both; width:100%; text-align:center; font-size:13px; background-color:#222; color:#FFF; border-bottom:1px solid #666; display: inline-block; position: absolute;"></div> 
                Footer Aside -->
-         </div>
-         <div id="bside"> </div>
       </div>
-      <!-- Modal Notes-->
-      <div class="modal fade" id="notes" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="staticBackdropLabel1"> <img src="logo-girl.png" style="display:inline-block; border: 1px solid #222; border-radius: 90px;" />&nbsp;&nbsp;&nbsp;Note and Usage</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-               </div>
-               <div class="modal-body">
-                  <a style="text-decoration:none" data-toggle="tooltip" data-placement="bottom" title="The code and design is came from Psyduck's EXP Calculator of d1g1t"> <b>This is "Unofficial/Fan made Exp Calculator for DelugeRPG (up to 150M Exp) - <small>A fork of <a href="https://psyduck.pkmn.pw/expcalc/" target="_blank" style="color:#F00;">Psyduck's Exp Calculator</a></small>".</b></a>
-                  <br>
-                  <br>
-                  <ol>
-                     <li>Left Panel - Calculator and Right Panel - List of Wild Pokemon & Trainers EXP.</li>
-                     <p> </p>
-                     <li> Enter your Current EXP and your Target EXP. Note: Assumes you have already beaten all region gym leaders and that your pokemon is at level 100.</li>
-                     <p> </p>
-                     <li>It will shows solution button. You can battle any other trainers that give the same amount of EXP as those in the suggested solution.</li>
-                     <p> </p>
-                     <li>If a solution is not automatically generated or Exp to target is not turn to 0 then add some EXP from the trainer list on the right by clicking on them. </li>
-                     <p> </p>
-                     <li>
-                        This calculator is designed for non-event Pokémon and calculates within the specified range(Current EXP to Target EXP)
-                        <ul>
-                           <li>100,000 to 10 Million</li>
-                           <li>10 Million to 50 Million</li>
-                           <li>50 Million to 100 Million</li>
-                           <li>100 Million to 150 Million</li>
-                        </ul>
-                     </li>	  
-                     <!-- <p> </p>
-                        <li>If you want to try other DelugeRPG Exp Calculator for DelugeRPG - visit <a href="https://aihvz100k.netlify.app/" target="_blank" style="color:#F00;">Aihvz 100K Exp Calculator</a> and <a href="https://psyduck.pkmn.pw/expcalc/" target="_blank" style="color:#F00;">Official Exp Calculator</a>.</li>
+      <div id="bside"></div>
+    </div>
+    <!-- Modal Notes-->
+    <div class="modal fade" id="notes" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel1">
+              <img src="logo-girl.png" style="display:inline-block; border: 1px solid #222; border-radius: 90px;" />&nbsp;&nbsp;&nbsp;Note and Usage
+            </h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <a style="text-decoration:none" data-toggle="tooltip" data-placement="bottom" title="The code and design is came from Psyduck's EXP Calculator of d1g1t">
+              <b>This is "Unofficial/Fan made Exp Calculator for DelugeRPG (up to 150M Exp) - <small>A fork of <a href="https://psyduck.pkmn.pw/expcalc/" target="_blank" style="color:#F00;">Psyduck's Exp Calculator</a>
+                </small>". </b>
+            </a>
+            <br>
+            <br>
+            <ol>
+              <li>Left Panel - Calculator and Right Panel - List of Wild Pokemon & Trainers EXP.</li>
+              <p></p>
+              <li> Enter your Current EXP and your Target EXP. Note: Assumes you have already beaten all region gym leaders and that your pokemon is at level 100.</li>
+              <p></p>
+              <li>It will shows solution button. You can battle any other trainers that give the same amount of EXP as those in the suggested solution.</li>
+              <p></p>
+              <li>If a solution is not automatically generated or Exp to target is not turn to 0 then add some EXP from the trainer list on the right by clicking on them. </li>
+              <p></p>
+              <li> This calculator is designed for non-event Pokémon and calculates within the specified range(Current EXP to Target EXP) <ul>
+                  <li>100,000 to 10 Million</li>
+                  <li>10 Million to 50 Million</li>
+                  <li>50 Million to 100 Million</li>
+                  <li>100 Million to 150 Million</li>
+                </ul>
+              </li>
+              <!-- <p></p><li>If you want to try other DelugeRPG Exp Calculator for DelugeRPG - visit <a href="https://aihvz100k.netlify.app/" target="_blank" style="color:#F00;">Aihvz 100K Exp Calculator</a> and <a href="https://psyduck.pkmn.pw/expcalc/" target="_blank" style="color:#F00;">Official Exp Calculator</a>.</li>
                            -->
-                  </ol>
-               </div>
-               <!-- <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Understood</button>
-                  </div> -->
+            </ol>
+          </div>
+          <!-- <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button><button type="button" class="btn btn-primary">Understood</button></div> -->
+        </div>
+      </div>
+    </div>
+    <!-- Modal Trainings-->
+    <div class="modal fade" id="train" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel1">
+              <img src="logo-girl.png" style="display:inline-block; border: 1px solid #222; border-radius: 90px;" />&nbsp;&nbsp;&nbsp;Training Accounts (S-Type)
+            </h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <a style="text-decoration:none">
+              <b>For leveling up low-level Pokémon to reach level 100 created by Yuichi (sugus2).</b>
+            </a>
+            <br>
+            <br>
+            <div class="form-group">
+              <div style="padding-top:2px;">
+                <select name="s-trainer" class="form-control" style="width:100%; height:2.2em;" id="s-trainer">
+                  <option value="s-bug">S-Bug</option>
+                  <option value="s-dark">S-Dark</option>
+                  <option value="s-dragon">S-Dragon</option>
+                  <option value="s-electric">S-Electric</option>
+                  <option value="s-fairy">S-Fairy</option>
+                  <option value="s-fighting">S-Fighting</option>
+                  <option value="s-fire">S-Fire</option>
+                  <option value="s-flying">S-Flying</option>
+                  <option value="s-ghost">S-Ghost</option>
+                  <option value="s-grass">S-Grass</option>
+                  <option value="s-ground">S-Ground</option>
+                  <option value="s-ice">S-Ice</option>
+                  <option value="s-normal">S-Normal</option>
+                  <option value="s-poison">S-Poison</option>
+                  <option value="s-psychic">S-Psychic</option>
+                  <option value="s-rock">S-Rock</option>
+                  <option value="s-steel">S-Steel</option>
+                  <option value="s-water">S-Water</option>
+                </select>
+              </div>
+              <div style="padding-top:20px; float:left;">
+                <button class="battnormal btn btn-primary btn-sm" id="battnormal" data-toggle="popover">Normal Battle</button>
+                <button class="battinverse btn btn-dark btn-sm" id="battinverse" data-toggle="popover">Inverse Battle</button>
+              </div>
             </div>
-         </div>
+          </div>
+        </div>
+        <!-- <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button><button type="button" class="btn btn-primary">Understood</button></div> -->
       </div>
-      <!-- Modal Trainings-->
-      <div class="modal fade" id="train" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="staticBackdropLabel1"> <img src="logo-girl.png" style="display:inline-block; border: 1px solid #222; border-radius: 90px;" />&nbsp;&nbsp;&nbsp;Training Accounts (S-Type)</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-               </div>
-               <div class="modal-body">
-                  <a style="text-decoration:none"> <b>For leveling up low-level Pokémon to reach level 100 created by Yuichi (sugus2).</b></a>
-                  <br>
-                  <br>
-                  <div class="form-group">
-                     <div style="padding-top:2px;">
-                        <select name="s-trainer" class="form-control" style="width:100%; height:2.2em;" id="s-trainer">
-                           <option value="s-bug">S-Bug</option>
-                           <option value="s-dark">S-Dark</option>
-                           <option value="s-dragon">S-Dragon</option>
-                           <option value="s-electric">S-Electric</option>
-                           <option value="s-fairy">S-Fairy</option>
-                           <option value="s-fighting">S-Fighting</option>
-                           <option value="s-fire">S-Fire</option>
-                           <option value="s-flying">S-Flying</option>
-                           <option value="s-ghost">S-Ghost</option>
-                           <option value="s-grass">S-Grass</option>
-                           <option value="s-ground">S-Ground</option>
-                           <option value="s-ice">S-Ice</option>
-                           <option value="s-normal">S-Normal</option>
-                           <option value="s-poison">S-Poison</option>
-                           <option value="s-psychic">S-Psychic</option>
-                           <option value="s-rock">S-Rock</option>
-                           <option value="s-steel">S-Steel</option>
-                           <option value="s-water">S-Water</option>
-                        </select>
-                     </div>
-                     <div style="padding-top:20px; float:left;">
-                        <button class="battnormal btn btn-primary btn-sm" id="battnormal" data-toggle="popover">Normal Battle</button>
-                        <button class="battinverse btn btn-dark btn-sm" id="battinverse" data-toggle="popover">Inverse Battle</button>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <!-- <div class="modal-footer">
-               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-               <button type="button" class="btn btn-primary">Understood</button>
-               </div> -->
-         </div>
+    </div>
+    </div>
+    <!-- Modal Guide-->
+    <div class="modal fade" id="guide" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel1">
+              <img src="logo-girl.png" style="display:inline-block; border: 1px solid #222; border-radius: 90px;" />&nbsp;&nbsp;&nbsp;Guide Links
+            </h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <b>DELUGERPG GAME LINKS</b>
+            <br>
+            <br>
+            <ul>
+              <li>
+                <a href="https://www.delugerpg.com/help" target="_blank" style="color:#F00;"> Help Page </a>
+              </li>
+              <li>
+                <a href="https://www.delugerpg.com/faq" target="_blank" style="color:#F00;"> FAQ (Frequently Asked Questions) </a>
+              </li>
+              <li>
+                <a href="https://www.delugerpg.com/pages/rules" target="_blank" style="color:#F00;"> Game Rules </a>
+              </li>
+              <li>
+                <a href="https://www.delugerpg.com/updates" target="_blank" style="color:#F00;"> Updates </a>
+              </li>
+              <li>
+                <a href="https://www.delugerpg.com/pages/troubleshooting" target="_blank" style="color:#F00;"> Troubleshooting) </a>
+              </li>
+              <li>
+                <a href="https://www.delugerpg.net/" target="_blank" style="color:#F00;"> Forum </a>
+              </li>
+              <li>
+                <a href="https://www.delugerpg.com/chat" target="_blank" style="color:#F00;"> Discord Chat </a>
+              </li>
+              <li>
+                <a href="https://www.delugerpg.com/pokedex" target="_blank" style="color:#F00;"> Pokedex </a>
+              </li>
+              <li>
+                <a href="https://www.delugerpg.com/attackdex" target="_blank" style="color:#F00;"> AttackDex </a>
+              </li>
+              <li>
+                <a href="https://www.delugerpg.com/pages/type-chart" target="_blank" style="color:#F00;"> Pokemon Type Chart </a>
+              </li>
+            </ul>
+            <hr>
+            <b>These are guide links for grinding EXP and coins, creating effective teams with skills for live battles/PVP, and creating effective teams with skills for live battles/PVP by Heodenings_Waltz</b>
+            <br>
+            <br>
+            <ul>
+              <li>
+                <a href="https://www.delugerpg.net/viewtopic.php?t=18817" target="_blank" style="color:#F00;"> Grinding Exp and Coins using VIP Elite Four Trainers </a>
+              </li>
+              <li>
+                <a href="https://www.delugerpg.net/viewtopic.php?t=27227" target="_blank" style="color:#F00;"> Grinding Exp and Coins using Region Champions and Ultimate Trainers </a>
+              </li>
+              <li>
+                <a href="https://www.delugerpg.net/viewtopic.php?t=27785" target="_blank" style="color:#F00;"> Creating Effective Teams with Skills for Live Battles/PVP </a>
+              </li>
+              <li>
+                <a href="https://www.delugerpg.net/viewtopic.php?t=19600" target="_blank" style="color:#F00;"> Attack Set for Ultimate Trainers </a>
+              </li>
+            </ul>
+            <hr>
+            <b>Other DelugeRPG Tools (Unofficial)</b>
+            <br>
+            <br>
+            <ul>
+              <li>
+                <a href="https://delugerpg-tools.vercel.app/exp" target="_blank" style="color:#F00;"> c3eline's Calculator (150M EXP) </a>
+              </li>
+              <li>
+                <a href="https://delugerpg-tools.vercel.app/grind" target="_blank" style="color:#F00;"> c3eline's Grind Bulletin </a>
+              </li>
+            </ul>
+          </div>
+          <!-- <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button><button type="button" class="btn btn-primary">Understood</button></div> -->
+        </div>
       </div>
+    </div>
+    <!-- Modal Trainer Option-->
+    <div class="modal fade" id="toption" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel1">
+              <img src="logo-girl.png" style="display:inline-block; border: 1px solid #222; border-radius: 90px;" />&nbsp;&nbsp;&nbsp;Alternate Trainers List
+            </h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <table id="trainertable" class="table table-hover borderless" style="overflow-x: auto; white-space: nowrap;">
+              <thead>
+                <tr class="text-bg-info">
+                  <th colspan="3" id="exp-caption" style="font-weight: bold; text-transform: uppercase;"></th>
+                </tr>
+              </thead>
+              <tbody id="trainertable-rows"></tbody>
+            </table>
+          </div>
+          <!-- <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button><button type="button" class="btn btn-primary">Understood</button></div> -->
+        </div>
       </div>
-      <!-- Modal Guide-->
-      <div class="modal fade" id="guide" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="staticBackdropLabel1"> <img src="logo-girl.png" style="display:inline-block; border: 1px solid #222; border-radius: 90px;" />&nbsp;&nbsp;&nbsp;Guide Links</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-               </div>
-               <div class="modal-body">
-                  <b>DELUGERPG GAME LINKS</b>
-                  <br>
-                  <br>
-                  <ul>
-                     <li><a href="https://www.delugerpg.com/help" target="_blank" style="color:#F00;"> Help Page </a></li>
-                     <li><a href="https://www.delugerpg.com/faq" target="_blank" style="color:#F00;"> FAQ (Frequently Asked Questions) </a></li>
-                     <li><a href="https://www.delugerpg.com/pages/rules" target="_blank" style="color:#F00;"> Game Rules </a></li>
-                     <li><a href="https://www.delugerpg.com/updates" target="_blank" style="color:#F00;"> Updates </a></li>
-                     <li><a href="https://www.delugerpg.com/pages/troubleshooting" target="_blank" style="color:#F00;"> Troubleshooting) </a></li>
-                     <li><a href="https://www.delugerpg.net/" target="_blank" style="color:#F00;"> Forum </a></li>
-                     <li><a href="https://www.delugerpg.com/chat" target="_blank" style="color:#F00;"> Discord Chat </a></li>
-                     <li><a href="https://www.delugerpg.com/pokedex" target="_blank" style="color:#F00;"> Pokedex </a></li>
-                     <li><a href="https://www.delugerpg.com/attackdex" target="_blank" style="color:#F00;"> AttackDex </a></li>
-                     <li><a href="https://www.delugerpg.com/pages/type-chart" target="_blank" style="color:#F00;"> Pokemon Type Chart </a></li>
+    </div>
+    <!-- Modal About-->
+    <div class="modal fade" id="about" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel1">
+              <img src="logo-boy.png" style="display:inline-block; border: 1px solid #222; border-radius: 90px;" />&nbsp;&nbsp;&nbsp;About
+            </h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p style="padding-left:25px;"> Aihvz EXP Calculator for DelugeRPG is based on Psyduck Exp Calculator. It only works for level 100 pokemon and beaten all the region gym leaders. </p>
+            <p style="padding:15px 0px 0px 25px;"> Thanks for these people:
+            <ul>
+              <li>
+                <b>d1g1t</b>
+                <br> Developer of DelugeRPG and Psyduck Exp Calculator.
+              </li>
+              <p></p>
+              <li>
+                <b>Aihvz, Mr.Clean, -Levi-, blokerstrikers, -Sevendeadlysins-, Captainskull, Clarence13579, FabulousManlyMan, Heodenings_Waltz, Jacknjill and Piratekid</b>
+                <br> For checking the design & errors and gathering data about exp on each trainers and wild pokemon.
+              </li>
+              <p></p>
+              <li>
+                <b>To All Players who helped me and also GitHub Community.</b>
+              </li>
+              <p></p>
+              <li>
+                <b>Respective owners of the images used on this page.</b>
+              </li>
+            </ul>
+            </p>
+            <hr style="border:1px solid #222; margin-left:25px;">
+            <h5 style="padding:0px 0px 10px 25px; font-weight:bold;" align="left">
+              <img src="logo-girl.png" style="display:inline-block; border: 1px solid #222; border-radius: 90px;" />&nbsp;&nbsp;&nbsp;Change Logs
+            </h5>
+            <div style="padding-left:25px;">
+              <p>
+                <b>
+                  <u>version 0.1</u>
+                </b>
+                <br> April 26, 2020 <br>
+              <ul>
+                <li> Unofficial Exp Calculator for 25M</li>
+              </ul>
+              </p>
+              <p>
+                <b>
+                  <u>version 0.2</u>
+                </b>
+                <br> May 4, 2020 <br> The web page is deployed on Github.
+              <ul>
+                <li>Added the 50M to 100M Exp Calculator.</li>
+                <li>Change the webpage design.</li>
+                <li>Change exp details based on the new update.</li>
+              </ul>
+              <b>
+                <u>version 0.2b</u>
+              </b>
+              <br> September 3, 2020 <ul>
+                <li>Made it reponsive webpage.</li>
+                <li>Fixed some of the Trainers Exp Info.</li>
+                <li>Fixed minor errors.</li>
+              </ul>
+              <b>
+                <u>version 0.3</u>
+              </b>
+              <br> November 3, 2022 <ul>
+                <li>Aenan's Calculator change to Aihvz Calculator</li>
+                <li>Added About and Change the Notes and Usage.</li>
+                <li> Training Accounts <ul>
+                    <li>Update the EXP Battle of Trainers List.</li>
                   </ul>
-                  <hr>
-                  <b>These are guide links for grinding EXP and coins, creating effective teams with skills for live battles/PVP, and creating effective teams with skills for live battles/PVP by Heodenings_Waltz</b>
-                  <br>
-                  <br>
-                  <ul>
-                     <li><a href="https://www.delugerpg.net/viewtopic.php?t=18817" target="_blank" style="color:#F00;"> Grinding Exp and Coins using VIP Elite Four Trainers </a></li>
-                     <li><a href="https://www.delugerpg.net/viewtopic.php?t=27227" target="_blank" style="color:#F00;"> Grinding Exp and Coins using Region Champions and Ultimate Trainers </a></li>
-                     <li><a href="https://www.delugerpg.net/viewtopic.php?t=27785" target="_blank" style="color:#F00;"> Creating Effective Teams with Skills for Live Battles/PVP </a></li>
-                     <li><a href="https://www.delugerpg.net/viewtopic.php?t=19600" target="_blank" style="color:#F00;"> Attack Set for Ultimate Trainers </a></li>
-                  </ul>
-		  <hr>
-                  <b>Other DelugeRPG Tools (Unofficial)</b>
-                  <br>
-                  <br>
-		  <ul>
-                     <li><a href="https://delugerpg-tools.vercel.app/exp" target="_blank" style="color:#F00;"> c3eline's Calculator (150M EXP) </a></li>
-		     <li><a href="https://delugerpg-tools.vercel.app/grind" target="_blank" style="color:#F00;"> c3eline's Grind Bulletin </a></li>
-		  </ul>		  
-               </div>
-               <!-- <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Understood</button>
-                  </div> -->
+                </li>
+              </ul>
+              <b>
+                <u>version 0.3b</u>
+              </b>
+              <br> November 1, 2023 <ul>
+                <li>Added Paldea Gym Leaders, Elite Four, Champion and Trainers.</li>
+                <li>Added the missing Elite Fours' and Champions for each regions</li>
+              </ul>
+              </ul>
+              <b>
+                <u>version 0.4 (beta)</u>
+              </b>
+              <br> December 28, 2023 <ul>
+                <li>Update the Exp Battle of Trainers List based <a href="https://www.delugerpg.com/updates" target="_blank"> Game Updates - 2023 December 21</a>. Thanks to Heodenings_Waltz for collecting exp values </li>
+                <li>Remove the 100K Exp Calculator Link</li>
+              </ul> December 29, 2023 <ul>
+                <li>Added Training Accounts by Yuichi (sugus2)</li>
+                <li>Added Guide Links</li>
+                <li>Added Battle Button that redirects to gym leaders, trainers (with inverse battle) and maps</li>
+                <li>Added S-Type (Training Accounts) on the list</li>
+                <li>Fixed minor errors.</li>
+              </ul>
+              </p>
             </div>
-         </div>
+          </div>
+        </div>
       </div>
-      <!-- Modal About-->
-      <div class="modal fade" id="about" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="staticBackdropLabel1"><img src="logo-boy.png" style="display:inline-block; border: 1px solid #222; border-radius: 90px;" />&nbsp;&nbsp;&nbsp;About</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-               </div>
-               <div class="modal-body">
-                  <p style="padding-left:25px;"> Aihvz EXP Calculator for DelugeRPG is based on Psyduck Exp Calculator. It only works for level 100 pokemon and beaten all the region gym leaders. </p>
-                  <p style="padding:15px 0px 0px 25px;"> Thanks for these people:
-                  <ul>
-                     <li> <b>d1g1t</b>
-                        <br> Developer of DelugeRPG and Psyduck Exp Calculator. 
-                     </li>
-                     <p> </p>
-                     <li> <b>Aihvz, Mr.Clean, -Levi-,  blokerstrikers, -Sevendeadlysins-, Captainskull, Clarence13579, FabulousManlyMan, Heodenings_Waltz, Jacknjill and Piratekid</b>
-                        <br> For checking the design & errors and gathering data about exp on each trainers and wild pokemon. 
-                     </li>
-                     <p> </p>
-                     <li> <b>To All Players who helped me and also GitHub Community.</b> </li>
-                     <p> </p>
-                     <li> <b>Respective owners of the images used on this page.</b> </li>
-                  </ul>
-                  </p>
-                  <hr style="border:1px solid #222; margin-left:25px;">
-                  <h5 style="padding:0px 0px 10px 25px; font-weight:bold;" align="left"><img src="logo-girl.png" style="display:inline-block; border: 1px solid #222; border-radius: 90px;" />&nbsp;&nbsp;&nbsp;Change Logs</h5>
-                  <div style="padding-left:25px;">
-                     <p> <b><u>version 0.1</u></b>
-                        <br> April 26, 2020
-                        <br>
-                     <ul>
-                        <li> Unofficial Exp Calculator for 25M</li>
-                     </ul>
-                     </p>
-                     <p> <b><u>version 0.2</u></b>
-                        <br> May 4, 2020
-                        <br> The web page is deployed on Github.
-                     <ul>
-                        <li>Added the 50M to 100M Exp Calculator.</li>
-                        <li>Change the webpage design.</li>
-                        <li>Change exp details based on the new update.</li>
-                     </ul>
-                     <b><u>version 0.2b</u></b>
-                      <br>  September 3, 2020
-                     <ul>
-                        <li>Made it reponsive webpage.</li>
-                        <li>Fixed some of the Trainers Exp Info.</li>
-                        <li>Fixed minor errors.</li>
-                     </ul>
-                     <b><u>version 0.3</u></b>	
-                     <br> November 3, 2022 
-                     <ul>
-                        <li>Aenan's Calculator change to Aihvz Calculator</li>
-                        <li>Added About and Change the Notes and Usage.</li>
-                        <li>
-                           Training Accounts
-                           <ul>
-                              <li>Update the EXP Battle of Trainers List.</li>
-                           </ul>
-                        </li>
-                     </ul>
-                     <b><u>version 0.3b</u></b>
-                     <br> November 1, 2023
-                     <ul>
-                        <li>Added Paldea Gym Leaders, Elite Four, Champion and Trainers.</li>
-                        <li>Added the missing Elite Fours' and Champions for each regions</li>
-                     </ul>
-                     </ul> <b><u>version 0.4 (beta)</u></b>
-                     <br> December 28, 2023
-                     <ul>
-                        <li>Update the Exp Battle of Trainers List based <a href="https://www.delugerpg.com/updates" target="_blank"> Game Updates - 2023 December 21</a>. Thanks to Heodenings_Waltz for collecting exp values</li>
-                        <li>Remove the 100K Exp Calculator Link</li>
-                     </ul>
-						December 29, 2023
-                     <ul>
-                        <li>Added Training Accounts by Yuichi (sugus2)</li>
-                        <li>Added Guide Links</li>
-						<li>Added Battle Button that redirects to gym leaders, trainers (with inverse battle) and maps</li>
-						<li>Added S-Type (Training Accounts) on the list</li>
-						<li>Fixed minor errors.</li>
-                     </ul>
-					 
-                     </p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- Modal-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.2/js/bootstrap.min.js"></script>
-      <script src="script.js"></script>
-   </body>
+    </div>
+    <!-- Modal-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
