@@ -473,36 +473,47 @@ function toLower(x) {
 	return x.toLowerCase();
 }
 
-// Load Sums Function
-function load_sums(callback) {
-	if (load_sums_wait) {
-		setTimeout(function() {
-			load_sums(callback);
-		}, 2000);
-		return;
-	}
-	if (!(eset in sumcache)) {
-		load_sums_wait = 1;
-		$.getJSON('data/sums_sub' + eset + '.json', function(data) {
-			prepdata = data;
-			for (var i = 0; i < pdata.length; i++) {
-				if (typeof(pdata[i]['exp' + eset]) !== 'undefined') {
-					prepdata[pdata[i]['exp' + eset]] = pdata[i]['exp' + eset];
-				}
-			}
-			sumcache[eset] = prepdata;
-			load_sums_wait = 0;
-			solvedsoluton = '';
-			reload_exps();
-			if (callback) callback();
-		});
-	} else {
-		prepdata = sumcache[eset];
-		solvedsoluton = '';
-		reload_exps();
-		if (callback) callback();
-	}
+// Wrap your logic inside a function
+function performExpCalculations() {
+    if ($('#exp2target').data('num') > 0) {
+        findPossibleCombo();
+    }
 }
+
+// Modify the load_sums function to execute the calculations when sums are loaded
+function load_sums(callback) {
+    if (load_sums_wait) {
+        setTimeout(function () {
+            load_sums(callback);
+        }, 2000);
+        return;
+    }
+    if (!(eset in sumcache)) {
+        load_sums_wait = 1;
+        $.getJSON('data/sums_sub' + eset + '.json?v=20190919', function (data) {
+            prepdata = data;
+            for (var i = 0; i < pdata.length; i++) {
+                if (typeof (pdata[i]['exp' + eset]) !== 'undefined') {
+                    prepdata[pdata[i]['exp' + eset]] = pdata[i]['exp' + eset];
+                }
+            }
+            sumcache[eset] = prepdata;
+            load_sums_wait = 0;
+            solvedsoluton = '';
+            reload_exps();
+            if (callback) callback(); // Execute the callback once sums are loaded
+            performExpCalculations(); // Perform calculations after sums are loaded
+        });
+    } else {
+        prepdata = sumcache[eset];
+        solvedsoluton = '';
+        reload_exps();
+        if (callback) callback(); // Execute the callback if sums are already cached
+        performExpCalculations(); // Perform calculations after sums are loaded
+    }
+}
+
+load_sums();
 
 // Reload Experiences Function
 function reload_exps() {
