@@ -16,6 +16,7 @@
 	{ "opp": "Level 16", "e10": 194, "e50": 233, "e100": 117, "e150": 59, "head": "Wild-Pokemon", "btid": 0, "base": "pokemon" },
 
 	{ "opp": "S-Type", "e10": 9986, "e50": 11984, "e100": 5992, "e150": 2996, "head": "Training-Accounts", "btid": 1, "base": "training" },
+	{ "opp": "Lana", "e10": 21788, "e50": 26146, "e100": 13073, "e150": 6537, "head": "VIP", "btid": 703, "base": "trainer" },
 
 
 	{ "opp": "Brock", "e10": 629, "e50": 755, "e100": 378, "e150": 189, "head": "Kanto-Gym", "btid": 101, "base": "gym" },
@@ -186,8 +187,6 @@
 
 
 
-
-	{ "opp": "Lana", "e10": 21788, "e50": 26146, "e100": 13073, "e150": 6537, "head": "VIP", "btid": 703, "base": "trainer" },
 	{ "opp": "Giovanni", "e10": 18156, "e50": 21788, "e100": 10894, "e150": 5447, "head": "VIP", "btid": 108, "base": "trainer" },
 	{ "opp": "Janine", "e10": 18156, "e50": 21788, "e100": 10894, "e150": 5447, "head": "VIP", "btid": 105, "base": "trainer" },
 	{ "opp": "Juan", "e10": 18156, "e50": 21788, "e100": 10894, "e150": 5447, "head": "VIP", "btid": 309, "base": "trainer" },
